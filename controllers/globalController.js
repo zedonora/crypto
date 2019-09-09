@@ -1,5 +1,4 @@
 import routes from "../routers";
-
 // Home
 export const home = async(req, res) => {
 
@@ -14,7 +13,7 @@ export const home = async(req, res) => {
     //     res.writeHead(200, { "content-type": "text/html" });
     //     res.end(data);
     // });
-    res.render("home", {
+    res.render("pages/home", {
         title: "MY HOMEPAGE",
         length: 5
     });

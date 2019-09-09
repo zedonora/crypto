@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // qs모듈로 쿼리스트�
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
-app.use(express.static('public'));
+app.use(express.static("./node_modules"))
 app.use(session({
     secret: '@#@$MYSIGN#@$#$',
     resave: false,
