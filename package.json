@@ -1,0 +1,40 @@
+{
+    "name": "crypto-proj",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon --exec babel-node init.js --delay 2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zedonora/crypto-proj.git"
+    },
+    "author": "kyg",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/zedonora/crypto-proj/issues"
+    },
+    "homepage": "https://github.com/zedonora/crypto-proj#readme",
+    "dependencies": {
+        "@babel/cli": "^7.6.0",
+        "@babel/core": "^7.6.0",
+        "@babel/node": "^7.6.1",
+        "@babel/polyfill": "^7.6.0",
+        "@babel/preset-env": "^7.6.0",
+        "babel-loader": "^8.0.6",
+        "body-parser": "^1.19.0",
+        "cookie-parser": "^1.4.4",
+        "dotenv": "^8.1.0",
+        "ejs": "^2.7.1",
+        "express": "^4.17.1",
+        "express-session": "^1.16.2",
+        "fs": "0.0.1-security",
+        "helmet": "^3.21.0",
+        "mariadb": "^2.1.1",
+        "method-override": "^3.0.0",
+        "morgan": "^1.9.1",
+        "nodemon": "^1.19.2"
+    }
+}
