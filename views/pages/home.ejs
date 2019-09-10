@@ -6,12 +6,8 @@
 </head>
 
 <body class="app sidebar-show">
-    <header class="app-header navbar">
-        <!-- Header content here -->
-        <% include ../partials/header.ejs %>
-    </header>
     <div class="app-body">
-        <div class="sidebar">
+        <div class="sidebar" style="min-width: 400px;">
             <!-- Sidebar content here -->
             <% include ../partials/navigator.ejs %>
         </div>
@@ -20,10 +16,6 @@
             <% include ./main.ejs %>
         </main>
     </div>
-    <footer class="app-footer">
-        <!-- Footer content here -->
-        <% include ../partials/footer.ejs %>
-    </footer>
     <% include ../partials/foot.ejs %>
 </body>
 
