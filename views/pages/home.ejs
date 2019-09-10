@@ -5,16 +5,26 @@
     <% include ../partials/head.ejs %>
 </head>
 
-<body class="app">
-    <h1>Loop it!</h1>
-    <ul>
-        <% for(var i=0; i<length; i++){ %>
-            <li>
-                <%= "LOOP" + i %>
-            </li>
-            <% } %>
-    </ul>
-    <% include ../partials/footer.ejs %>
+<body class="app sidebar-show">
+    <header class="app-header navbar">
+        <!-- Header content here -->
+        <% include ../partials/header.ejs %>
+    </header>
+    <div class="app-body">
+        <div class="sidebar">
+            <!-- Sidebar content here -->
+            <% include ../partials/navigator.ejs %>
+        </div>
+        <main class="main">
+            <!-- Main content here -->
+            <% include ./main.ejs %>
+        </main>
+    </div>
+    <footer class="app-footer">
+        <!-- Footer content here -->
+        <% include ../partials/footer.ejs %>
+    </footer>
+    <% include ../partials/foot.ejs %>
 </body>
 
 </html>
