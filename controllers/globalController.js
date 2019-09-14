@@ -1,29 +1,13 @@
 import routes from "../routers";
-// Home
+import orderBook from "../market/orderBook";
 export const home = async(req, res) => {
-
-    // fs.readFile(__dirname + "/static/index.html", { json: true }, function(
-    //     err,
-    //     data
-    // ) {
-    //     if (err) {
-    //         res.writeHead(500);
-    //         return res.end("Error loading");
-    //     }
-    //     res.writeHead(200, { "content-type": "text/html" });
-    //     res.end(data);
-    // });
-    res.render("pages/home", {
-        title: "MY HOMEPAGE",
-        length: 5
-    });
-    // try {
-    //     // const videos = await Video.find({}).sort({ _id: -1 });
-    //     // res.render("home", { pageTitle: "Home", videos });
-    // } catch (error) {
-    //     console.log(error);
-    //     res.render("home", { pageTitle: "Home", videos: [] });
-    // }
+    try {
+        const data = orderBook();
+        res.render("pages/home", { title: "CryptoCurrency", data });
+    } catch (error) {
+        console.log(error);
+        res.render("pages/home", { title: "CryptoCurrency", data });
+    }
 };
 
 // Detail
