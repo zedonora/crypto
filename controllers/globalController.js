@@ -2,12 +2,21 @@ import routes from "../routers";
 import orderBook from "../market/orderBook";
 export const home = async(req, res) => {
     try {
-        const data1 = orderBook.promise1();
-        const data2 = orderBook.promise2();
-        res.render("pages/home", { title: "CryptoCurrency", data1 });
+        let newJson = new Array();
+        let obj = new Object();
+        for (let func in orderBook) {
+            obj = orderBook[func]();
+            obj.then(function(result) {
+               console.log(result);
+               newJson.push(result);
+               console.log(newJson);
+            });
+        }
+        console.log(newJson);
+        res.render("pages/home", { title: "CryptoCurrency", newJson });
     } catch (error) {
         console.log(error);
-        res.render("pages/home", { title: "CryptoCurrency", data });
+        res.render("pages/home", { title: "CryptoCurrency" });
     }
 };
 
