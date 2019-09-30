@@ -13,7 +13,7 @@ export const home = async(req, res) => {
             });
         }
         console.log(newJson);
-        res.render("pages/home", { title: "CryptoCurrency", newJson });
+        res.render("pages/home", { title: "CryptoCurrency", items:newJson });
     } catch (error) {
         console.log(error);
         res.render("pages/home", { title: "CryptoCurrency" });
