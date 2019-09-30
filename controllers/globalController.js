@@ -1,8 +1,8 @@
 import routes from "../routers";
 import orderBook from "../market/orderBook";
+let newJson = new Array();
 export const home = async(req, res) => {
     try {
-        let newJson = new Array();
         let obj = new Object();
         for (let func in orderBook) {
             obj = orderBook[func]();
@@ -12,11 +12,13 @@ export const home = async(req, res) => {
                console.log(newJson);
             });
         }
-        console.log(newJson);
-        res.render("pages/home", { title: "CryptoCurrency", items:newJson });
+        //console.log(newJson);
     } catch (error) {
         console.log(error);
         res.render("pages/home", { title: "CryptoCurrency" });
+    } finally {
+        console.log(">>>>>>>>>>>>>>>>>>");
+        res.render("pages/home", { title: "CryptoCurrency", items:newJson, test:newJson });
     }
 };
 
