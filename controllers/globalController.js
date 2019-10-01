@@ -3,11 +3,12 @@ import orderBook from "../market/orderBook";
 export const home = async(req, res) => {
     try {
         let newJson = new Array();
-        let items = await Promise.all([orderBook.promise1(), orderBook.promise2(), orderBook.promise4()]).then(function(values) {
-            newJson.push(values);
+        await Promise.all([orderBook.promise1(), orderBook.promise2()]).then(function(values) {
+            //newJson.push(values);
             console.log(values);
+            //console.log(values);
         });
-        //console.log(newJson);
+        
         // let obj = new Object();
         // let newJson = new Array();
         // for (let func in orderBook) {
@@ -17,9 +18,10 @@ export const home = async(req, res) => {
         //     });
         // }
         //res.render("pages/home", { title: "CryptoCurrency", items});
+        res.render("pages/home");
     } catch (error) {
         console.log(error);
-        res.render("pages/home", { title: "CryptoCurrency" });
+        //res.render("pages/home", { title: "CryptoCurrency" });
     } 
 };
 
