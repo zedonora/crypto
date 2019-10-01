@@ -1,26 +1,35 @@
 import routes from "../routers";
 import orderBook from "../market/orderBook";
-let newJson = new Array();
 export const home = async(req, res) => {
     try {
-        let obj = new Object();
-        for (let func in orderBook) {
-            obj = orderBook[func]();
-            obj.then(function(result) {
-               console.log(result);
-               newJson.push(result);
-               console.log(newJson);
-            });
-        }
-        //console.log(newJson);
+        const newJson = await callMarketInfo();
+        // let obj = new Object();
+        // let newJson = new Array();
+        // for (let func in orderBook) {
+        //     obj = orderBook[func]();
+        //     obj.then(function(result) {
+        //         newJson.push(result);
+        //     });
+        // }
+        console.log(newJson);
+        res.render("pages/home", { title: "CryptoCurrency", items: newJson });
     } catch (error) {
         console.log(error);
         res.render("pages/home", { title: "CryptoCurrency" });
-    } finally {
-        console.log(">>>>>>>>>>>>>>>>>>");
-        res.render("pages/home", { title: "CryptoCurrency", items:newJson, test:newJson });
-    }
+    } 
 };
+
+let callMarketInfo = async() => new Promise((resolve)=> {
+    let obj = new Object();
+    let newJson = new Array();
+    for (let func in orderBook) {
+        obj = orderBook[func]();
+        obj.then(function(result) {
+            newJson.push(result);
+            resolve(newJson);
+        });
+    }
+});
 
 // Detail
 export const detail = async(req, res) => {
